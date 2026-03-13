@@ -49,7 +49,7 @@ export function AgentCard({ agent, onSelect, onHire, onFire, isHired = true }: A
             alt={agent.name}
             className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = '/pixel-agents/default.png';
+              (e.target as HTMLImageElement).src = './pixel-agents/default.png';
             }}
           />
           <div className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white ${statusColors[agent.status]}`} />
