@@ -3,11 +3,11 @@
 const nextConfig = {
   output: 'export',
   distDir: 'docs',
+  basePath: '/pixel-agent-dashboard',
   images: {
     unoptimized: true,
   },
   trailingSlash: true,
-  assetPrefix: '.',
 };
 
 module.exports = nextConfig;
