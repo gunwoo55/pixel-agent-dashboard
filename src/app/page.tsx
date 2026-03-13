@@ -6,6 +6,7 @@ import { StatsCards } from '@/components/StatsCards';
 import { AgentGrid } from '@/components/AgentGrid';
 import { TaskBoard } from '@/components/TaskBoard';
 import { useAgentStore } from '@/store/agentStore';
+import { Agent, Task } from '@/types/agent';
 
 // Mock data for demonstration
 const mockAgents = [
@@ -133,12 +134,12 @@ export default function DashboardPage() {
     }, 500);
   }, []);
 
-  const handleSelectAgent = (agent: typeof mockAgents[0]) => {
+  const handleSelectAgent = (agent: Agent) => {
     console.log('Selected agent:', agent);
     // TODO: Open agent detail modal
   };
 
-  const handleTaskClick = (task: typeof mockTasks[0]) => {
+  const handleTaskClick = (task: Task) => {
     console.log('Selected task:', task);
     // TODO: Open task detail modal
   };

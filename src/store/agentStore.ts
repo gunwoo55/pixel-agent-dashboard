@@ -5,7 +5,7 @@ export interface Agent {
   name: string;
   role: string;
   avatar: string;
-  status: 'working' | 'idle' | 'resting' | 'training';
+  status: 'working' | 'idle' | 'break' | 'offline';
   level: number;
   experience: number;
   skills: string[];
