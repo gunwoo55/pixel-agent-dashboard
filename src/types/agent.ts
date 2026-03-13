@@ -3,52 +3,51 @@ export interface Agent {
   name: string;
   role: string;
   avatar: string;
-  status: 'idle' | 'working' | 'break' | 'offline';
   level: number;
   experience: number;
+  maxExperience: number;
+  status: 'idle' | 'working' | 'resting' | 'offline';
   skills: string[];
-  currentTask?: Task;
-  stats: {
-    efficiency: number;
-    reliability: number;
-    speed: number;
-    quality: number;
-  };
-  hireDate: string;
-  salary: number;
+  currentTask?: string;
+  taskProgress?: number;
+  efficiency: number; // 0-100
+  completedTasks: number;
+  joinedAt: string;
 }
 
 export interface Task {
   id: string;
   title: string;
   description: string;
-  status: 'pending' | 'in_progress' | 'completed' | 'failed';
-  progress: number;
-  assignedAgentId?: string;
+  status: 'pending' | 'in-progress' | 'review' | 'completed';
   priority: 'low' | 'medium' | 'high' | 'urgent';
-  deadline?: string;
+  assignedTo?: string; // agent id
   createdAt: string;
-  completedAt?: string;
+  deadline?: string;
+  progress: number;
+  tags: string[];
 }
 
 export interface Project {
   id: string;
   name: string;
   description: string;
-  status: 'planning' | 'active' | 'completed' | 'cancelled';
+  status: 'planning' | 'active' | 'paused' | 'completed';
   progress: number;
-  assignedAgents: string[];
-  tasks: Task[];
+  agents: string[]; // agent ids
+  tasks: string[]; // task ids
   startDate: string;
   endDate?: string;
-  budget: number;
+  budget?: number;
+  priority: 'low' | 'medium' | 'high';
 }
 
-export interface AgentMetrics {
+export interface DashboardStats {
   totalAgents: number;
   activeAgents: number;
+  totalTasks: number;
   completedTasks: number;
   inProgressTasks: number;
   averageEfficiency: number;
-  totalProjects: number;
+  projectsActive: number;
 }
